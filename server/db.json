@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Hello world",
+      "authors": [{ "firstNames": "Minä", "lastName": "Itte" }],
+      "datePublished": "2022"
+    },
+    {
+      "id": "2",
+      "title": "Valtioni",
+      "authors": [{ "firstNames": "Urho", "lastName": "Kekkone" }],
+      "datePublished": "1970"
+    }
+  ]
+}

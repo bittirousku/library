@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Book collection </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- COURSES LIST -->
+
+    <mat-list *ngIf="books; else noBooks">
+      <mat-list-item *ngFor="let book of books" (click)="selected.emit(book)">
+        <h3 matLine>{{ book.title }}</h3>
+        <div matLine *ngFor="let author of book.authors">
+          <p>{{ formatAuthorName(author) }}</p>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <ng-template #noBooks>No books found!</ng-template>
+  </mat-card-content>
+</mat-card>

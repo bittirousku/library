@@ -1,0 +1,13 @@
+<div class="books-containers">
+  <div class="books-list">
+    <app-books-list
+      [books]="books"
+      (selected)="selectBook($event)"
+      (deleted)="deleteBook($event)"
+    ></app-books-list>
+  </div>
+
+  <div class="books-details">
+    <app-books-details [book]="currentBook"></app-books-details>
+  </div>
+</div>

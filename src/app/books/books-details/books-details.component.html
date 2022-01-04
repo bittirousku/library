@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="currentBook; else noSelection">
+        {{ currentBook.title }}</span
+      >
+      <ng-template #noSelection>Select a book</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let field of currentBook | keyvalue">
+        {{ field.key }}: {{ field.value }}</mat-list-item
+      >
+    </mat-list>
+  </mat-card-content>
+</mat-card>
