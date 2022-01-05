@@ -2,14 +2,14 @@
   "books": [
     {
       "id": "1",
-      "title": "Hello wordl",
+      "title": "Hello world",
+      "yearPublished": 2022,
       "authors": [
         {
           "firstNames": "My",
           "lastName": "Self"
         }
-      ],
-      "yearPublished": 2022
+      ]
     },
     {
       "id": "2",

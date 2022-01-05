@@ -1,17 +1,20 @@
 <h1 mat-dialog-title>Edit book</h1>
 
+<!-- Use bookForm.getRawValue to get disabled values too -->
 <div mat-dialog-content>
-  <form #form="ngForm" (submit)="data.saved.emit(data.book)">
+  <form
+    [formGroup]="bookForm"
+    (ngSubmit)="data.saved.emit(bookForm.getRawValue())"
+  >
     <mat-dialog-content>
       <mat-form-field>
         <input
           matInput
           placeholder="Id"
           type="text"
-          name="id"
-          [(ngModel)]="data.book.id"
           required
-          disabled
+          formControlName="id"
+          class="form-control"
         />
       </mat-form-field>
       <mat-form-field>
@@ -19,8 +22,8 @@
           matInput
           placeholder="Title"
           type="text"
-          name="title"
-          [(ngModel)]="data.book.title"
+          formControlName="title"
+          class="form-control"
           required
         />
       </mat-form-field>
@@ -30,26 +33,42 @@
           matInput
           placeholder="Year published"
           type="number"
-          name="datePublished"
-          [(ngModel)]="data.book.yearPublished"
+          formControlName="yearPublished"
+          class="form-control"
           required
         />
       </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Author"
-          type="text"
-          name="author"
-          [(ngModel)]="data.book.authors"
-          required
-        />
-      </mat-form-field>
+      <div formArrayName="authors">
+        <h3>Authors</h3>
+        <div *ngFor="let author of authors.controls; let i = index">
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input
+                id="author-{{ i }}"
+                matInput
+                placeholder="Author first names"
+                type="text"
+                formControlName="firstNames"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Author last name"
+                type="text"
+                formControlName="lastName"
+                required
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
     </mat-dialog-content>
 
     <mat-dialog-actions>
       <button
-        [disabled]="form.invalid"
+        [disabled]="!bookForm.valid"
         type="submit"
         color="primary"
         mat-button
