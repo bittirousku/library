@@ -9,7 +9,7 @@ import { BooksService } from '../shared/services/books.service';
 })
 export class BooksComponent implements OnInit {
   books: Book[] | [] = [];
-  currentBook!: Book;
+  currentBook!: Book | undefined;
 
   constructor(private booksService: BooksService) {}
 
@@ -22,6 +22,14 @@ export class BooksComponent implements OnInit {
       if (Array.isArray(books)) this.books = books;
     });
   }
+  resetSelectedCourse() {
+    this.currentBook = undefined;
+  }
+
+  refreshBooks() {
+    this.loadBooks();
+    this.resetSelectedCourse();
+  }
 
   selectBook(book: Book): void {
     console.log('Selected ', book.title);
@@ -29,4 +37,11 @@ export class BooksComponent implements OnInit {
   }
 
   deleteBook(bookId: string): void {}
+
+  saveBook(book: Book) {
+    console.log('saving book', book);
+    if (book.id) {
+      this.booksService.update(book).subscribe((_) => this.refreshBooks());
+    }
+  }
 }

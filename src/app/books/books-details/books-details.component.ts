@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Book } from 'src/app/shared/models/book.model';
+import { BooksEditComponent } from '../books-edit/books-edit.component';
 
 @Component({
   selector: 'app-books-details',
@@ -9,12 +11,21 @@ import { Book } from 'src/app/shared/models/book.model';
 export class BooksDetailsComponent {
   currentBook!: Book;
 
-  @Output() saved = new EventEmitter();
+  // TODO: clear selection
   @Output() cancelled = new EventEmitter();
+  @Output() saved: EventEmitter<any> = new EventEmitter();
 
-  @Input() set book(value: Book) {
+  @Input() set book(value: Book | undefined) {
     if (value) {
       this.currentBook = { ...value };
     }
+  }
+
+  constructor(public dialog: MatDialog) {}
+
+  editBook(book: Book) {
+    this.dialog.open(BooksEditComponent, {
+      data: { book: book, saved: this.saved },
+    });
   }
 }

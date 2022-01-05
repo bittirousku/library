@@ -10,15 +10,27 @@ import { BooksComponent } from './books/books.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksListComponent } from './books/books-list/books-list.component';
 import { BooksDetailsComponent } from './books/books-details/books-details.component';
+import { BooksEditComponent } from './books/books-edit/books-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, BooksComponent, BooksListComponent, BooksDetailsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    BooksComponent,
+    BooksListComponent,
+    BooksDetailsComponent,
+    BooksEditComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

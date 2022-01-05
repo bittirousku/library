@@ -6,6 +6,10 @@
       >
       <ng-template #noSelection>Select a book</ng-template>
     </mat-card-title>
+    <!-- TODO: show the edit button only if book is selected -->
+    <button mat-icon-button color="info" (click)="editBook(currentBook)">
+      <mat-icon>edit</mat-icon>
+    </button>
   </mat-card-header>
 
   <mat-card-content>

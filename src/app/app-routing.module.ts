@@ -6,6 +6,7 @@ import { BooksComponent } from './books/books.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'books', component: BooksComponent },
+  { path: 'books/:bookId/edit', component: BooksComponent },
   { path: '**', redirectTo: '/home' },
 ];
 

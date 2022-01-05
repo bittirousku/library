@@ -8,6 +8,10 @@
   </div>
 
   <div class="books-details">
-    <app-books-details [book]="currentBook"></app-books-details>
+    <app-books-details
+      *ngIf="currentBook"
+      [book]="currentBook"
+      (saved)="saveBook($event)"
+    ></app-books-details>
   </div>
 </div>

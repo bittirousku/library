@@ -2,14 +2,24 @@
   "books": [
     {
       "id": "1",
-      "title": "Hello world",
-      "authors": [{ "firstNames": "Minä", "lastName": "Itte" }],
+      "title": "Hello word",
+      "authors": [
+        {
+          "firstNames": "My",
+          "lastName": "Self"
+        }
+      ],
       "datePublished": "2022"
     },
     {
       "id": "2",
-      "title": "Valtioni",
-      "authors": [{ "firstNames": "Urho", "lastName": "Kekkone" }],
+      "title": "Learn Angular the Hard Way",
+      "authors": [
+        {
+          "firstNames": "A. N",
+          "lastName": "Gular"
+        }
+      ],
       "datePublished": "1970"
     }
   ]
