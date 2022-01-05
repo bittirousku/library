@@ -5,5 +5,5 @@ export type Book = {
   title: string;
   authors?: Author[];
   editors?: Author[];
-  datePublished: Date;
+  yearPublished: number;
 };

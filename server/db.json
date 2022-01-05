@@ -2,14 +2,14 @@
   "books": [
     {
       "id": "1",
-      "title": "Hello word",
+      "title": "Hello wordl",
       "authors": [
         {
           "firstNames": "My",
           "lastName": "Self"
         }
       ],
-      "datePublished": "2022"
+      "yearPublished": 2022
     },
     {
       "id": "2",
@@ -20,7 +20,7 @@
           "lastName": "Gular"
         }
       ],
-      "datePublished": "1970"
+      "yearPublished": 1970
     }
   ]
 }

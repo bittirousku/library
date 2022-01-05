@@ -24,6 +24,27 @@
           required
         />
       </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Year published"
+          type="number"
+          name="datePublished"
+          [(ngModel)]="data.book.yearPublished"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Author"
+          type="text"
+          name="author"
+          [(ngModel)]="data.book.authors"
+          required
+        />
+      </mat-form-field>
     </mat-dialog-content>
 
     <mat-dialog-actions>
