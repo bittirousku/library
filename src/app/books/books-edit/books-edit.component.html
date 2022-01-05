@@ -6,6 +6,7 @@
     [formGroup]="bookForm"
     (ngSubmit)="data.saved.emit(bookForm.getRawValue())"
   >
+    <!-- <form [formGroup]="bookForm" (ngSubmit)="onSubmit(bookForm.getRawValue())"> -->
     <mat-dialog-content>
       <mat-form-field>
         <input
@@ -46,7 +47,7 @@
               <input
                 id="author-{{ i }}"
                 matInput
-                placeholder="Author first names"
+                placeholder="First names"
                 type="text"
                 formControlName="firstNames"
                 required
@@ -55,7 +56,7 @@
             <mat-form-field>
               <input
                 matInput
-                placeholder="Author last name"
+                placeholder="Last name"
                 type="text"
                 formControlName="lastName"
                 required
@@ -63,6 +64,16 @@
             </mat-form-field>
           </div>
         </div>
+
+        <!-- NOTE: be careful, the button MUST have type="button", else it will try to submit -->
+        <button
+          mat-icon-button
+          color="info"
+          type="button"
+          (click)="addAuthor()"
+        >
+          Add author<mat-icon>add</mat-icon>
+        </button>
       </div>
     </mat-dialog-content>
 
