@@ -38,10 +38,15 @@ export class BooksComponent implements OnInit {
 
   deleteBook(bookId: string): void {}
 
-  saveBook(book: Book) {
+  updateBook(book: Book) {
     console.log('saving book', book);
     if (book.id) {
       this.booksService.update(book).subscribe((_) => this.refreshBooks());
     }
+  }
+
+  createBook(book: Book) {
+    console.log('saving book', book);
+    this.booksService.create(book).subscribe((_) => this.refreshBooks());
   }
 }

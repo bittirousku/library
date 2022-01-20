@@ -7,3 +7,7 @@ export function formatAuthor(author: Author, reverse: boolean = false) {
     return `${author.firstNames} ${author.lastName}`;
   }
 }
+
+export function formatAuthors(authors: Author[]) {
+  return authors.map((a) => formatAuthor(a)).join(', ');
+}

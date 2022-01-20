@@ -4,6 +4,7 @@
       [books]="books"
       (selected)="selectBook($event)"
       (deleted)="deleteBook($event)"
+      (created)="createBook($event)"
     ></app-books-list>
   </div>
 
@@ -11,7 +12,7 @@
     <app-books-details
       *ngIf="currentBook"
       [book]="currentBook"
-      (saved)="saveBook($event)"
+      (saved)="updateBook($event)"
     ></app-books-details>
   </div>
 </div>

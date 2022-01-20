@@ -6,7 +6,7 @@
       "yearPublished": 2022,
       "authors": [
         {
-          "firstNames": "My",
+          "firstNames": "Mää",
           "lastName": "Self"
         }
       ]
@@ -21,6 +21,21 @@
         }
       ],
       "yearPublished": 1970
+    },
+    {
+      "id": "BcHQnLg",
+      "title": "mörö!",
+      "yearPublished": 2022,
+      "authors": [
+        {
+          "firstNames": "minä",
+          "lastName": "minä"
+        },
+        {
+          "firstNames": "hän",
+          "lastName": "hän"
+        }
+      ]
     }
   ]
 }

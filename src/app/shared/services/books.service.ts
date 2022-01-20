@@ -22,6 +22,10 @@ export class BooksService {
     return this.http.put(this.getUrlById(book.id), book);
   }
 
+  create(book: Book) {
+    return this.http.post(this.url, book);
+  }
+
   private getUrlById(id: string) {
     return `${this.url}/${id}`;
   }
