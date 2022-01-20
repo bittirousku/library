@@ -18,10 +18,22 @@ export class BooksListComponent {
 
   formatAuthorName = formatAuthor;
 
+  query: string | undefined;
+
+  filterBooks() {
+    if (this.query && this.query.length > 3) {
+      const _query: string = this.query;
+      return this.books.filter((b) =>
+        b.title.toLowerCase().includes(_query.toLowerCase() as string)
+      );
+    }
+    return this.books;
+  }
+
   constructor(public dialog: MatDialog) {}
 
   addBook() {
-    const book = {
+    const newBook = {
       id: '',
       title: '',
       yearPublished: 2022,
@@ -33,7 +45,12 @@ export class BooksListComponent {
       ],
     };
     this.dialog.open(BooksEditComponent, {
-      data: { book: book, saved: this.created },
+      data: { book: newBook, saved: this.created },
     });
+  }
+
+  // TODO!
+  searchBook() {
+    // filter the list
   }
 }

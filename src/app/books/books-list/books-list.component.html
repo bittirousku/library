@@ -1,18 +1,31 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title> Book collection </mat-card-title>
-    <!-- TODO: add search field here -->
 
     <!--  TODO: Fix the button CSS -they are not properly aligned -->
     <button mat-icon-button color="info" (click)="addBook()">
       <mat-icon>add</mat-icon>
     </button>
+
+    <mat-form-field>
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        type="search"
+        placeholder="Search"
+        class="search-input"
+        [(ngModel)]="query"
+      />
+    </mat-form-field>
   </mat-card-header>
   <mat-card-content>
     <!-- COURSES LIST -->
 
     <mat-list *ngIf="books; else noBooks">
-      <mat-list-item *ngFor="let book of books" (click)="selected.emit(book)">
+      <mat-list-item
+        *ngFor="let book of filterBooks()"
+        (click)="selected.emit(book)"
+      >
         <h3 matLine>{{ book.title }}</h3>
         <div matLine *ngFor="let author of book.authors">
           <p>{{ formatAuthorName(author) }}</p>
